@@ -1,20 +1,21 @@
 <template>
   <div id="app">
-    // TODO: place here search input component
-    // TODO: place here package viewer component
+    <WidgetSearch />// TODO: place here package viewer component
   </div>
 </template>
 
 <script>
+import WidgetSearch from './components/widgets/widget-search.vue';
+
 export default {
   name: 'app',
-  components: {},
+  components: { WidgetSearch },
 };
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Nunito, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
