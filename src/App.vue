@@ -1,15 +1,22 @@
 <template>
-  <div id="app">
-    <WidgetSearch />// TODO: place here package viewer component
-  </div>
+  <v-app>
+    <WidgetSearch />
+    <WidgetPackages @item-clicked="itemClicked" />
+  </v-app>
 </template>
 
 <script>
 import WidgetSearch from './components/widgets/widget-search.vue';
+import WidgetPackages from './components/widgets/packages/widget-packages.vue';
 
 export default {
   name: 'app',
-  components: { WidgetSearch },
+  components: { WidgetSearch, WidgetPackages },
+  methods: {
+    itemClicked(item) {
+      console.log(`app: package clicked: ${item.name}`);
+    },
+  },
 };
 </script>
 
@@ -20,6 +27,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
