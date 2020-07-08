@@ -13,9 +13,9 @@
       @keydown.enter="submit"
     >
       <template v-slot:append>
-        <v-fade-transition leave-absolute>
+        <v-carousel-transition hide-on-leave>
           <v-progress-circular v-if="isLoading" size="28" color="black" indeterminate />
-        </v-fade-transition>
+        </v-carousel-transition>
       </template>
     </v-text-field>
   </WidgetWrapper>

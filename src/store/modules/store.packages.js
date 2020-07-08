@@ -38,9 +38,9 @@ const actions = {
   },
   async fetchPackage({ }, packageName) {
     const service = this.$services.packageService;
-    const packageObject = await service.fetchPackage(packageName);
+    const responseModel = await service.fetchPackage(packageName);
 
-    return packageObject;
+    return responseModel.package;
   },
 };
 
