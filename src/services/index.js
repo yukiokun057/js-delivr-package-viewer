@@ -1,9 +1,11 @@
 import Vue from 'vue';
 
-import search from './search';
+import packageService from './service.package';
 
 const prepareServices = (store) => {
-  store.$services = { searchService: search };
+  store.$services = {
+    packageService,
+  };
 
   Vue.mixin({
     beforeCreate() {

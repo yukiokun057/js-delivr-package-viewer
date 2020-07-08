@@ -13,6 +13,16 @@ class SearchRequestModel {
   }
 }
 
+class FetchPackageRequestModel {
+  packageName = ''
+
+  constructor(packageName) {
+    if (!packageName) throw new Error('\'query\' is empty');
+    this.packageName = packageName;
+  }
+}
+
 export {
   SearchRequestModel,
+  FetchPackageRequestModel,
 };

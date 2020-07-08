@@ -20,6 +20,9 @@ module.exports = {
     'array-callback-return': 'off',
     'no-cond-assign': 'off',
     'no-use-before-define': 'off',
+    'func-names': 'off',
+    'max-classes-per-file': 'off',
+    'no-empty-pattern': 'off',
     'no-param-reassign': 'warn',
   },
 };

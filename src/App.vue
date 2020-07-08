@@ -13,8 +13,13 @@ export default {
   name: 'App',
   components: { WidgetSearch, WidgetPackages },
   methods: {
-    itemClicked(item) {
+    async itemClicked(item) {
       console.log(`app: package clicked: ${item.name}`);
+      const packageObject = await this.$store.dispatch(
+        'packages/fetchPackage',
+        item.name,
+      );
+      console.log('app: package clicked:', packageObject);
     },
   },
 };

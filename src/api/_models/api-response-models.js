@@ -12,6 +12,15 @@ class SearchResponseModel {
   }
 }
 
+class FetchPackageResponseModel {
+  package = null
+
+  constructor(response) {
+    this.package = response.data;
+  }
+}
+
 export {
   SearchResponseModel,
+  FetchPackageResponseModel,
 };

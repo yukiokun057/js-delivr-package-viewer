@@ -21,7 +21,7 @@ const actions = {
     commit('SET_QUERY', query);
 
     if (!query) return;
-    const service = this.$services.searchService;
+    const service = this.$services.packageService;
     const { items, nbPages } = await service.search(state.query, state.page, state.perPage);
 
     commit('APPEND_ITEMS', items);
@@ -30,11 +30,17 @@ const actions = {
   async continueSearch({ commit, state }) {
     commit('SET_PAGE', state.page + 1);
 
-    const service = this.$services.searchService;
+    const service = this.$services.packageService;
     const { items, nbPages } = await service.search(state.query, state.page, state.perPage);
 
     commit('APPEND_ITEMS', items);
     commit('SET_PAGES', nbPages);
+  },
+  async fetchPackage({ }, packageName) {
+    const service = this.$services.packageService;
+    const packageObject = await service.fetchPackage(packageName);
+
+    return packageObject;
   },
 };
 
