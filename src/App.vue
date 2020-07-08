@@ -10,7 +10,7 @@ import WidgetSearch from './components/widgets/widget-search.vue';
 import WidgetPackages from './components/widgets/packages/widget-packages.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: { WidgetSearch, WidgetPackages },
   methods: {
     itemClicked(item) {

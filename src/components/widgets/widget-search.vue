@@ -1,8 +1,8 @@
 <template>
   <WidgetWrapper>
     <v-text-field
-      class="search-input"
       v-model="query"
+      class="search-input"
       placeholder="search all of npm"
       prepend-inner-icon="mdi-magnify"
       color="black"
@@ -31,12 +31,19 @@ export default {
   data() {
     return {
       query: '',
-      isLoading: true,
+      isLoading: false,
     };
   },
   methods: {
-    submit() {
-      console.log(`Submit query: [${this.query}] `);
+    async submit() {
+      try {
+        this.isLoading = true;
+        console.log(`Submit query: [${this.query}] `);
+
+        await this.$store.dispatch('packages/search', this.query);
+      } finally {
+        this.isLoading = false;
+      }
     },
   },
 };

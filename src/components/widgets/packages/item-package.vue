@@ -3,21 +3,15 @@
     <!-- title and link-buttons -->
     <v-row no-gutters>
       <v-col sm="8" cols="12" class="package-name-wrapper">
-        <span class="package-name">{{item.name}}</span>
+        <span class="package-name">{{ item.name }}</span>
       </v-col>
       <v-col sm="4" cols="12">
         <div class="package-buttons">
-          <v-btn v-show="item.links.homepage" icon large :href="item.links.homepage">
+          <v-btn v-show="item.homepage" icon large :href="item.homepage">
             <v-icon>mdi-link</v-icon>
           </v-btn>
-          <v-btn v-show="item.links.repository" icon large :href="item.links.repository">
+          <v-btn v-if="item.repository" icon large :href="item.repository.url">
             <v-icon>mdi-github</v-icon>
-          </v-btn>
-          <v-btn v-show="item.links.npm" icon large :href="item.links.npm">
-            <v-icon>mdi-npm</v-icon>
-          </v-btn>
-          <v-btn v-show="item.links.download" icon large :href="item.links.download">
-            <v-icon>mdi-download</v-icon>
           </v-btn>
         </div>
       </v-col>
@@ -35,33 +29,33 @@
               contain
               :src="item.owner.avatar"
             />
-            {{item.owner.name}}
+            {{ item.owner.name }}
           </a>
           <v-chip class="package-version" small outlined :ripple="false">
             <v-avatar left>
               <v-icon small>mdi-tag</v-icon>
             </v-avatar>
-            {{item.version}}
+            {{ item.version }}
           </v-chip>
           <v-chip class="package-license" small outlined :ripple="false">
             <v-avatar left>
               <v-icon small>mdi-license</v-icon>
             </v-avatar>
-            {{item.license}}
+            {{ item.license }}
           </v-chip>
         </v-row>
         <v-row no-gutters>
-          <p class="package-description">{{item.description}}</p>
+          <p class="package-description">{{ item.description }}</p>
         </v-row>
         <v-row no-gutters class="package-keywords">
           <v-chip
+            v-for="(keyword, index) in item.keywords.slice(0, 7)"
+            :key="`${index}-${keyword}`"
             class="keyword-chip"
             small
             outlined
             :ripple="false"
-            v-for="keyword in item.keywords"
-            :key="keyword"
-          >{{keyword}}</v-chip>
+          >{{ keyword }}</v-chip>
         </v-row>
       </v-col>
     </v-row>

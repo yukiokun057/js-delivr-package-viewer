@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="widget-wrapper">
+  <v-container
+    fluid
+    class="widget-wrapper"
+  >
     <slot />
   </v-container>
 </template>
